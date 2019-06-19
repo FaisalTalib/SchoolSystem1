@@ -1,0 +1,361 @@
+ package task11.pkg1;
+
+  
+public class GeometricObject {
+   
+  public String Owner = "" ; 
+  private String color = "white";
+  private boolean filled;
+  private java.util.Date dateCreated;
+  
+  /** Construct a default geometric object */
+  public GeometricObject() {
+    dateCreated = new java.util.Date();    }
+  
+  /** Construct a geometric object with the specified color  and filled value */
+  public GeometricObject(String Color, boolean filled) {
+    dateCreated = new java.util.Date();
+    this.color = color;
+    this.filled = filled;
+  }
+
+    GeometricObject(String faisel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+  public void setOwner(String s) {
+      
+      this.Owner = s;
+  }
+   public void setOwner() {
+      
+      this.Owner = "Set of all 2D geometric shapes";
+
+  }
+  public String getOwner() {
+  
+      return Owner;
+  }
+ 
+  /** Return color */
+  public String getColor() {
+    return color;
+  }
+
+  /** Set a new color */
+  public void setColor(String color) {
+    this.color = color;
+  }
+ 
+  /** Return filled. Since filled is boolean,  its get method is named isFilled */
+  public boolean isFilled() {
+    return filled;
+  }
+  
+  /** Set a new filled */
+  public void setFilled(boolean filled) {
+    this.filled = filled;
+  }
+   
+  /** Get dateCreated */
+  public java.util.Date getDateCreated() {
+    return dateCreated;
+  }
+   
+  /** Return a string representation of this object */
+  public String toString() {
+    return "created on " + dateCreated + "\ncolor: " + color + 
+      " and filled: " + filled;
+  }
+}
+package task11.pkg1;
+
+ 
+
+public class Circle  extends GeometricObject {
+   
+                   
+  private double radius;
+  private int n;
+
+  public Circle() {
+  }
+  public Circle(double radius) {
+	super();
+    this.radius = radius;
+  }
+  public Circle(double radius, String color, boolean filled) {
+                
+    super(color, filled);
+    this.radius = radius;
+    //setColor(color);
+    //setFilled(filled);
+  }
+  public static int factorial(int n){
+      
+      if (n==0) {
+          return 1;
+      }
+      else{
+          return n + factorial(n-1);   
+      }
+      
+  }
+  public void setOwner() {
+      
+      this.Owner = "Set of all 2D curved shapes";
+  }
+   public void setOwner(String Owner) {
+      
+      this.Owner = "Set of all 2D curved shapes";
+  }
+  /* public boolean equals(object obj) {
+       if(obj instanceof Circle){
+           
+           return (this.radius==((Circle) obj).radius)
+                   
+       } 
+      else       
+         return false;
+   }
+  /** Return radius */
+  public double getRadius() {
+    return radius;
+  }
+  /** Set a new radius */
+  public void setRadius(double radius) {
+    this.radius = radius;
+  }
+  /** Return area */
+  public double getArea() {
+    return radius * radius * Math.PI;
+  }
+  /** Return diameter */
+  public double getDiameter() {
+    return 2 * radius;
+  }
+ 
+  /** Return perimeter */
+  public double getPerimeter() {
+    return 2 * radius * Math.PI;
+  }
+  /* Print the circle info */
+  public void printCircle() {
+    System.out.println(toString() + "The circle is created " + getDateCreated() +
+      " and the radius is " + radius);
+  }
+    public String toString() {
+    return "Circle  " + getColor() + super.toString();
+  }
+}
+ 
+package task11.pkg1;
+
+ 
+public class Rectangle extends GeometricObject {
+    
+  private double width;
+  private double height;
+
+  public Rectangle() {
+  }
+
+  public Rectangle(double width, double height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  public Rectangle(double width, double height, String color,  boolean filled) {
+    super(color , filled);
+    this.width = width;
+    this.height = height;
+    //setColor(color);
+    //setFilled(filled);
+  }
+
+  /** Return width */
+  public double getWidth() {
+    return width;
+  }
+/** Set a new width */
+  public void setWidth(double width) {
+    this.width = width;
+  }
+
+  /** Return height */
+  public double getHeight() {
+    return height;
+  }
+
+  /** Set a new height */
+  public void setHeight(double height) {
+    this.height = height;
+  }
+  /** Return area */
+  public double getArea() {
+    return width * height;
+  }
+  /** Return perimeter */
+  public double getPerimeter() {
+    return 2*(width + height);
+  }
+}
+ package task11.pkg1;
+
+ 
+public class Triangle extends GeometricObject {
+    
+private double height;
+private double base;
+
+public Triangle() {
+    
+}
+public Triangle(double height , double base) {
+    this.base= base;
+    this.height = height;
+    
+}
+public Triangle(double height , double base , String color,  boolean filled) {
+    super(color , filled);
+    this.base= base;
+    this.height = height;
+  
+}
+/** Return width */
+  public double getbase() {
+    return base;
+  }
+/** Set a new width */
+  public void setbase(double base) {
+    this.base = base;
+  }
+
+  /** Return height */
+  public double getHeight() {
+    return height;
+  }
+
+  /** Set a new height */
+  public void setHeight(double height) {
+    this.height = height;
+  }
+  /** Return area */
+  public double getArea() {
+    return 0.5* base * height;
+  }
+  public void printCircle() {
+    System.out.println(toString() + "Trinagle" + getArea() +
+      " and the highet is " + height +  " and the base is " + base );
+  }
+   /* public String toString() {
+    return "Trinagle  " + getArea() + super.toString();*/
+  }
+//}
+   package task11.pkg1;
+
+ 
+public class Task111 {
+
+   public int n; 
+    public static void main(String[] args) {
+        
+   shapeDimensions(new GeometricObject());
+   shapeDimensions(new Circle());
+   shapeDimensions(new Rectangle());
+   shapeDimensions(new Triangle());   
+       
+        
+         Circle circle = new Circle(1);
+    System.out.println("A circle " + circle.toString());
+    System.out.println("The radius is " + circle.getRadius());
+    System.out.println("The area is " + circle.getArea());
+    System.out.println("The diameter is "  + circle.getDiameter());
+    
+                         
+
+    Rectangle rectangle = new Rectangle(2, 4);
+    System.out.println("\nA rectangle " + rectangle.toString());
+    System.out.println("The area is " + rectangle.getArea());
+    System.out.println("The perimeter is " +rectangle.getPerimeter());
+    
+    Triangle tringle1 = new Triangle(1.6 , 6.3);
+    System.out.println("\nA Trinagle" + tringle1.toString());
+    System.out.println("The area is " + tringle1.getArea());
+    
+     
+                                      
+  }
+    
+     public static void shapeDimensions(GeometricObject x) {
+         
+        System.out.println(x.toString());
+     }
+    
+     GeometricObject c = new GeometricObject();
+     Circle g = new Circle();
+     Rectangle r = new Rectangle();
+     Triangle t = new Triangle();
+     {
+         cheakObject(c);
+         cheakObject(g);
+         cheakObject(t);
+         cheakObject(r);
+         
+         Circle c1 = new Circle(15.5);
+         Circle c2 = new Circle(18.2);
+         
+         GeometricObject g1 = new GeometricObject("Faisel");
+         GeometricObject g2 = new GeometricObject("Faisel");
+         
+         Rectangle r1 = new Rectangle(15.2 , 21.1);
+         Rectangle r2 = new Rectangle(15.2 , 21.1);
+         
+           Triangle t1 = new Triangle(15.3 , 12.9);
+           Triangle t2 = new Triangle(14.1 , 18.2);         
+         
+         System.out.println(c1.equals(c2));
+         System.out.println(g1.equals(g2));
+         System.out.println(r1.equals(r2));
+         System.out.println(t1.equals(t2));
+         
+         
+     }
+         
+         public static void cheakObject(GeometricObject obj) {
+         
+     if(obj instanceof GeometricObject) 
+       System.out.println(obj.toString() +"c is an instance of class GeometricObject "); 
+     else
+          System.out.println(obj.toString() +"c is not an instance of class GeometricObject "); 
+     
+     if(obj instanceof Circle) 
+       System.out.println(obj.toString() +"c is an instance of class Circle "); 
+     else
+          System.out.println(obj.toString() +"c is not an instance of class Circle "); 
+     
+     if(obj  instanceof Rectangle) 
+       System.out.println(obj.toString() +"c is an instance of class Rectangle "); 
+     else
+          System.out.println(obj.toString() +"c is not an instance of class Rectangle "); 
+     
+     if(obj  instanceof Triangle) 
+       System.out.println(obj.toString() +"c is an instance of class Triangle "); 
+     else
+          System.out.println(obj.toString() +"c is not an instance of class Triangle "); 
+  
+}
+  public static int factorial(int n){
+      
+      if (n==0) {
+          return 1;
+      }
+      else{
+          System.out.println("The NUM is : "+factorial(n-1));
+      }
+        return 0;
+      
+  }
+  
+ 
+
+}
